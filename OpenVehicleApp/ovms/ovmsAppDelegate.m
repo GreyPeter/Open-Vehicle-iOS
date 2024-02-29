@@ -123,6 +123,13 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  if ([WCSession isSupported]) {
+    self.session = [WCSession defaultSession];
+    self.session.delegate = self;
+    [self.session activateSession];
+    
+    NSLog(@"WCSession Started");
+  }
   // Set the application defaults
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   NSDictionary *appDefaults = [NSDictionary
@@ -690,6 +697,8 @@
     case 'S': // STATUS
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
+        [self.session sendMessage:@{@"topic":@"S"} replyHandler:nil errorHandler:nil];
+        [self.session sendMessage:@{@"S":lparts} replyHandler:nil errorHandler:nil];
       if ([lparts count]>=8)
         {
         car_soc = [[lparts objectAtIndex:0] intValue];
@@ -740,6 +749,8 @@
     case 'L': // LOCATION
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
+        [self.session sendMessage:@{@"topic":@"L"} replyHandler:nil errorHandler:nil];
+        [self.session sendMessage:@{@"L":lparts} replyHandler:nil errorHandler:nil];
       if ([lparts count]>=2)
         {
         car_location.latitude = [[lparts objectAtIndex:0] doubleValue];
@@ -818,6 +829,8 @@
     case 'D': // CAR ENVIRONMENT
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
+        [self.session sendMessage:@{@"topic":@"D"} replyHandler:nil errorHandler:nil];
+        [self.session sendMessage:@{@"D":lparts} replyHandler:nil errorHandler:nil];
       if ([lparts count]>=9)
         {
         car_doors1 = [[lparts objectAtIndex:0] intValue];
@@ -1664,5 +1677,16 @@ else
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[mapURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 }
 
+- (void)sessionDidBecomeInactive:(WCSession *)session {
+  
+}
+
+- (void)sessionDidDeactivate:(WCSession *)session {
+  
+}
+
+- (void)session:(nonnull WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(nullable NSError *)error {
+  NSLog(@"WCSession Activation Error");
+}
 
 @end

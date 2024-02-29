@@ -562,7 +562,40 @@
 		63F9E37616E0EA9D00E3B313 /* ConnectionTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F9E37516E0EA9D00E3B313 /* ConnectionTypes.m */; };
 		63F9E37B16E105F200E3B313 /* CRTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F9E37816E105F200E3B313 /* CRTableViewCell.m */; };
 		63F9E37C16E105F200E3B313 /* ConnectionTypesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F9E37A16E105F200E3B313 /* ConnectionTypesController.m */; };
+		D046BAD42B902A6D00E5DE62 /* WatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D046BAD32B902A6D00E5DE62 /* WatchModel.swift */; };
+		D046BAD62B902AAE00E5DE62 /* WatchMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = D046BAD52B902AAE00E5DE62 /* WatchMetric.swift */; };
+		D08A06F72B84B25C00CA15E4 /* OVWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A06F62B84B25C00CA15E4 /* OVWatchApp.swift */; };
+		D08A06F92B84B25C00CA15E4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A06F82B84B25C00CA15E4 /* ContentView.swift */; };
+		D08A06FB2B84B25F00CA15E4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D08A06FA2B84B25F00CA15E4 /* Assets.xcassets */; };
+		D08A06FE2B84B25F00CA15E4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D08A06FD2B84B25F00CA15E4 /* Preview Assets.xcassets */; };
+		D08A07012B84B25F00CA15E4 /* OVWatch Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = D08A06F42B84B25B00CA15E4 /* OVWatch Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D0E67E312B84B6BB00872736 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E67E302B84B6BA00872736 /* ProgressBar.swift */; };
+		D0E67E332B84B70200872736 /* SubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0E67E322B84B70200872736 /* SubView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D08A06FF2B84B25F00CA15E4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4D5AE35B14733757002F5F52 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D08A06F32B84B25B00CA15E4;
+			remoteInfo = "OVWatch Watch App";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D08A07062B84B25F00CA15E4 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				D08A07012B84B25F00CA15E4 /* OVWatch Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0B27916B251B11BC0047C079 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
@@ -1227,6 +1260,16 @@
 		63F9E37816E105F200E3B313 /* CRTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRTableViewCell.m; sourceTree = "<group>"; };
 		63F9E37916E105F200E3B313 /* ConnectionTypesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionTypesController.h; sourceTree = "<group>"; };
 		63F9E37A16E105F200E3B313 /* ConnectionTypesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionTypesController.m; sourceTree = "<group>"; };
+		D046BAD32B902A6D00E5DE62 /* WatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchModel.swift; sourceTree = "<group>"; };
+		D046BAD52B902AAE00E5DE62 /* WatchMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMetric.swift; sourceTree = "<group>"; };
+		D08A06EB2B849A1200CA15E4 /* Open Vehicle-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Open Vehicle-Bridging-Header.h"; sourceTree = "<group>"; };
+		D08A06F42B84B25B00CA15E4 /* OVWatch Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OVWatch Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D08A06F62B84B25C00CA15E4 /* OVWatchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OVWatchApp.swift; sourceTree = "<group>"; };
+		D08A06F82B84B25C00CA15E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D08A06FA2B84B25F00CA15E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D08A06FD2B84B25F00CA15E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D0E67E302B84B6BA00872736 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		D0E67E322B84B70200872736 /* SubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1252,6 +1295,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D08A06F12B84B25B00CA15E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -1260,6 +1310,7 @@
 			children = (
 				4DB9426422031839002972F4 /* Open Vehicle.entitlements */,
 				4D5AE36E14733757002F5F52 /* ovms */,
+				D08A06F52B84B25C00CA15E4 /* OVWatch Watch App */,
 				4D5AE36714733757002F5F52 /* Frameworks */,
 				4D5AE36514733757002F5F52 /* Products */,
 			);
@@ -1269,6 +1320,7 @@
 			isa = PBXGroup;
 			children = (
 				4D5AE36414733757002F5F52 /* Open Vehicle.app */,
+				D08A06F42B84B25B00CA15E4 /* OVWatch Watch App.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1321,6 +1373,7 @@
 				4DB5AFCF19B7497100C42A66 /* Icons */,
 				4DCABE59151B666100CB3D2A /* Weather Symbols */,
 				4D5AE36F14733757002F5F52 /* Supporting Files */,
+				D08A06EB2B849A1200CA15E4 /* Open Vehicle-Bridging-Header.h */,
 			);
 			path = ovms;
 			sourceTree = "<group>";
@@ -2129,6 +2182,29 @@
 			path = PopoverView;
 			sourceTree = "<group>";
 		};
+		D08A06F52B84B25C00CA15E4 /* OVWatch Watch App */ = {
+			isa = PBXGroup;
+			children = (
+				D08A06F62B84B25C00CA15E4 /* OVWatchApp.swift */,
+				D08A06F82B84B25C00CA15E4 /* ContentView.swift */,
+				D0E67E302B84B6BA00872736 /* ProgressBar.swift */,
+				D0E67E322B84B70200872736 /* SubView.swift */,
+				D046BAD32B902A6D00E5DE62 /* WatchModel.swift */,
+				D046BAD52B902AAE00E5DE62 /* WatchMetric.swift */,
+				D08A06FA2B84B25F00CA15E4 /* Assets.xcassets */,
+				D08A06FC2B84B25F00CA15E4 /* Preview Content */,
+			);
+			path = "OVWatch Watch App";
+			sourceTree = "<group>";
+		};
+		D08A06FC2B84B25F00CA15E4 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				D08A06FD2B84B25F00CA15E4 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2139,14 +2215,33 @@
 				4D5AE36014733757002F5F52 /* Sources */,
 				4D5AE36114733757002F5F52 /* Frameworks */,
 				4D5AE36214733757002F5F52 /* Resources */,
+				D08A07062B84B25F00CA15E4 /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D08A07002B84B25F00CA15E4 /* PBXTargetDependency */,
+			);
+			name = "Open Vehicle";
+			productName = ovms;
+			productReference = 4D5AE36414733757002F5F52 /* Open Vehicle.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D08A06F32B84B25B00CA15E4 /* OVWatch Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D08A07022B84B25F00CA15E4 /* Build configuration list for PBXNativeTarget "OVWatch Watch App" */;
+			buildPhases = (
+				D08A06F02B84B25B00CA15E4 /* Sources */,
+				D08A06F12B84B25B00CA15E4 /* Frameworks */,
+				D08A06F22B84B25B00CA15E4 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Open Vehicle";
-			productName = ovms;
-			productReference = 4D5AE36414733757002F5F52 /* Open Vehicle.app */;
+			name = "OVWatch Watch App";
+			productName = "OVWatch Watch App";
+			productReference = D08A06F42B84B25B00CA15E4 /* OVWatch Watch App.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2155,10 +2250,12 @@
 		4D5AE35B14733757002F5F52 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1520;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Open Vehicle Systems";
 				TargetAttributes = {
 					4D5AE36314733757002F5F52 = {
+						LastSwiftMigration = 1520;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -2174,6 +2271,10 @@
 								enabled = 0;
 							};
 						};
+					};
+					D08A06F32B84B25B00CA15E4 = {
+						CreatedOnToolsVersion = 15.2;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -2197,6 +2298,7 @@
 			projectRoot = "";
 			targets = (
 				4D5AE36314733757002F5F52 /* Open Vehicle */,
+				D08A06F32B84B25B00CA15E4 /* OVWatch Watch App */,
 			);
 		};
 /* End PBXProject section */
@@ -2659,6 +2761,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D08A06F22B84B25B00CA15E4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D08A06FE2B84B25F00CA15E4 /* Preview Assets.xcassets in Resources */,
+				D08A06FB2B84B25F00CA15E4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2759,7 +2870,28 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D08A06F02B84B25B00CA15E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D046BAD42B902A6D00E5DE62 /* WatchModel.swift in Sources */,
+				D08A06F92B84B25C00CA15E4 /* ContentView.swift in Sources */,
+				D0E67E332B84B70200872736 /* SubView.swift in Sources */,
+				D0E67E312B84B6BB00872736 /* ProgressBar.swift in Sources */,
+				D08A06F72B84B25C00CA15E4 /* OVWatchApp.swift in Sources */,
+				D046BAD62B902AAE00E5DE62 /* WatchMetric.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D08A07002B84B25F00CA15E4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D08A06F32B84B25B00CA15E4 /* OVWatch Watch App */;
+			targetProxy = D08A06FF2B84B25F00CA15E4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		4D5AE37114733757002F5F52 /* InfoPlist.strings */ = {
@@ -2843,14 +2975,16 @@
 		4D29A7F11485EFE60088122F /* Adhoc Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Open Vehicle.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 20210922;
-				DEVELOPMENT_TEAM = 5NP6692GUS;
+				DEVELOPMENT_TEAM = KNRM248MZK;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2861,7 +2995,7 @@
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "../core-plot/framework/**";
 				INFOPLIST_FILE = "ovms/ovms-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LIBRARY_SEARCH_PATHS = "";
 				MARKETING_VERSION = 1.8.6;
 				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = NO;
@@ -2870,9 +3004,11 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.openvehicles.ovms;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openvehicles.ovms.prh;
 				PRODUCT_NAME = "Open Vehicle";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ovms/Open Vehicle-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "armv7 armv7s arm64 x86_64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -2932,14 +3068,16 @@
 		4D29A7F41485EFEE0088122F /* AppStore Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Open Vehicle.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 20210922;
-				DEVELOPMENT_TEAM = 5NP6692GUS;
+				DEVELOPMENT_TEAM = KNRM248MZK;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2950,7 +3088,7 @@
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "../core-plot/framework/**";
 				INFOPLIST_FILE = "ovms/ovms-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LIBRARY_SEARCH_PATHS = "";
 				MARKETING_VERSION = 1.8.6;
 				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = NO;
@@ -2959,9 +3097,11 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.openvehicles.ovms;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openvehicles.ovms.prh;
 				PRODUCT_NAME = "Open Vehicle";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ovms/Open Vehicle-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "armv7 armv7s arm64 x86_64";
 				WRAPPER_EXTENSION = app;
 			};
@@ -3028,13 +3168,15 @@
 		4D5AE3A614733758002F5F52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Open Vehicle.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 20210922;
-				DEVELOPMENT_TEAM = 5NP6692GUS;
+				DEVELOPMENT_TEAM = KNRM248MZK;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3045,7 +3187,7 @@
 				GCC_VERSION = "";
 				HEADER_SEARCH_PATHS = "../core-plot/framework/**";
 				INFOPLIST_FILE = "ovms/ovms-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LIBRARY_SEARCH_PATHS = "";
 				MARKETING_VERSION = 1.8.6;
 				MOMC_SUPPRESS_INVERSE_TRANSIENT_ERROR = NO;
@@ -3054,14 +3196,220 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.openvehicles.ovms;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openvehicles.ovms.prh;
 				PRODUCT_NAME = "Open Vehicle";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "ovms/Open Vehicle-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "armv7 armv7s arm64 x86_64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
+		};
+		D08A07032B84B25F00CA15E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_ASSET_PATHS = "\"OVWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = KNRM248MZK;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OVWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.openvehicles.ovms.prh;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openvehicles.ovms.prh.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = Debug;
+		};
+		D08A07042B84B25F00CA15E4 /* AppStore Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"OVWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = KNRM248MZK;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OVWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.openvehicles.ovms.prh;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openvehicles.ovms.prh.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = "AppStore Release";
+		};
+		D08A07052B84B25F00CA15E4 /* Adhoc Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_ASSET_PATHS = "\"OVWatch Watch App/Preview Content\"";
+				DEVELOPMENT_TEAM = KNRM248MZK;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = OVWatch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.openvehicles.ovms.prh;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.openvehicles.ovms.prh.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.2;
+			};
+			name = "Adhoc Release";
 		};
 /* End XCBuildConfiguration section */
 
@@ -3082,6 +3430,16 @@
 				4D5AE3A614733758002F5F52 /* Debug */,
 				4D29A7F41485EFEE0088122F /* AppStore Release */,
 				4D29A7F11485EFE60088122F /* Adhoc Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D08A07022B84B25F00CA15E4 /* Build configuration list for PBXNativeTarget "OVWatch Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D08A07032B84B25F00CA15E4 /* Debug */,
+				D08A07042B84B25F00CA15E4 /* AppStore Release */,
+				D08A07052B84B25F00CA15E4 /* Adhoc Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
