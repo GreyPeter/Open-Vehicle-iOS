@@ -233,6 +233,30 @@
                                         <nil key="highlightedColor"/>
                                         <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chg Rem Soc" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJD-Ez-W9q" userLabel="battery_charge_remaining_time_soc">
+                                        <rect key="frame" x="158" y="17" width="75" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="O9v-h2-xnl"/>
+                                            <constraint firstAttribute="height" constant="14" id="aw0-eY-TvE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="11"/>
+                                        <color key="textColor" red="0.86769347829917043" green="0.64797607509870958" blue="0.16105017272696828" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="shadowOffset" width="1" height="1"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chg Rem Rng" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRa-YE-4Ns" userLabel="battery_charge_remaining_time_range">
+                                        <rect key="frame" x="25" y="17" width="80" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="2h1-qF-DvK"/>
+                                            <constraint firstAttribute="width" constant="80" id="9R2-9g-Tux"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="11"/>
+                                        <color key="textColor" red="0.22153432659516836" green="0.72790308356194644" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <size key="shadowOffset" width="1" height="1"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -248,6 +272,7 @@
                                     <constraint firstItem="4fU-jP-Msu" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="71l-mo-iFv"/>
                                     <constraint firstAttribute="bottom" secondItem="OLs-ET-xq8" secondAttribute="bottom" constant="5" id="7nM-y8-f8L"/>
                                     <constraint firstItem="4fU-jP-Msu" firstAttribute="top" secondItem="d1p-0y-KDl" secondAttribute="bottom" constant="2" id="8pU-j7-ss8"/>
+                                    <constraint firstItem="C4j-Z1-IjW" firstAttribute="top" secondItem="aJD-Ez-W9q" secondAttribute="bottom" constant="5" id="B4Q-IP-VVw"/>
                                     <constraint firstAttribute="trailing" secondItem="C4i-5V-3e1" secondAttribute="trailing" constant="5" id="B5t-gV-6p5"/>
                                     <constraint firstItem="zYR-tz-88R" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="BaP-Qw-xES"/>
                                     <constraint firstItem="C4j-Z1-IjW" firstAttribute="leading" secondItem="d1p-0y-KDl" secondAttribute="trailing" constant="56" id="Cmn-aI-clZ"/>
@@ -273,12 +298,15 @@
                                     <constraint firstItem="fN9-TR-Ojm" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="5" id="cBS-0d-ISi"/>
                                     <constraint firstAttribute="bottom" secondItem="CKU-Hj-ZF9" secondAttribute="bottom" constant="5" id="cL5-ye-5aP"/>
                                     <constraint firstItem="DOE-r2-aEW" firstAttribute="top" secondItem="C4j-Z1-IjW" secondAttribute="bottom" constant="7" id="cSc-uj-Qz2"/>
+                                    <constraint firstItem="kRa-YE-4Ns" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="dFg-c0-ibE"/>
                                     <constraint firstItem="d1p-0y-KDl" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="f0d-Wu-P6f"/>
                                     <constraint firstAttribute="bottom" secondItem="OLs-ET-xq8" secondAttribute="bottom" constant="5" id="kfH-Gm-WkW"/>
                                     <constraint firstAttribute="bottom" secondItem="zYR-tz-88R" secondAttribute="bottom" constant="5" id="l4z-wZ-yK4"/>
                                     <constraint firstItem="DOE-r2-aEW" firstAttribute="top" secondItem="C4j-Z1-IjW" secondAttribute="bottom" constant="7" id="mmr-16-DnV"/>
                                     <constraint firstAttribute="bottom" secondItem="C4i-5V-3e1" secondAttribute="bottom" constant="5" id="nvE-IH-SpE"/>
+                                    <constraint firstAttribute="trailing" secondItem="aJD-Ez-W9q" secondAttribute="trailing" constant="45" id="ozL-FZ-6Fh"/>
                                     <constraint firstItem="zYR-tz-88R" firstAttribute="top" secondItem="h1L-TI-gis" secondAttribute="top" constant="5" id="qhf-UF-l6d"/>
+                                    <constraint firstItem="d1p-0y-KDl" firstAttribute="top" secondItem="kRa-YE-4Ns" secondAttribute="bottom" constant="5" id="rPO-dG-9x1"/>
                                     <constraint firstItem="C4i-5V-3e1" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="5" id="sfE-MV-SIN"/>
                                     <constraint firstItem="4fU-jP-Msu" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="tSZ-AH-F3i"/>
                                     <constraint firstItem="CKU-Hj-ZF9" firstAttribute="top" secondItem="h1L-TI-gis" secondAttribute="top" constant="5" id="vRD-qJ-e0q"/>
@@ -401,6 +429,8 @@
                         <outlet property="m_battery_front_width" destination="g8s-Ac-bIE" id="1tR-qf-pGc"/>
                         <outlet property="m_car_charge_message" destination="dxg-Z5-kDR" id="inI-Ew-PzW"/>
                         <outlet property="m_car_charge_mode" destination="DOE-r2-aEW" id="gQ1-3Z-vX9"/>
+                        <outlet property="m_car_charge_remaining_range" destination="kRa-YE-4Ns" id="VtF-KQ-ijf"/>
+                        <outlet property="m_car_charge_remaining_soc" destination="aJD-Ez-W9q" id="Rux-yg-yRv"/>
                         <outlet property="m_car_charge_remaining_time" destination="C4j-Z1-IjW" id="4kG-54-eGz"/>
                         <outlet property="m_car_charge_state" destination="as8-eT-6NH" id="Xgp-Ol-StF"/>
                         <outlet property="m_car_charge_time" destination="d1p-0y-KDl" id="Iv8-6z-GCz"/>
