@@ -24,7 +24,7 @@ struct SubView: View {
     var body: some View {
         let rows: [GridItem] = Array(repeating: .init(.fixed(15)), count: 2)
         let stackHeight: CGFloat = 35
-        let cellSize = 0.3
+        let cellSize = 0.35
         GeometryReader { watchGeo in
             VStack {
                 LazyHGrid(rows: rows) {
@@ -32,7 +32,7 @@ struct SubView: View {
                         .font(.footnote)
                         .frame(width: watchGeo.size.width * cellSize)
                     Text(Data1)
-                        .fontWeight(.bold)
+                        //.fontWeight(.bold)
                         .foregroundColor(Color.red)
                         .frame(width: watchGeo.size.width * cellSize)
                     
@@ -40,7 +40,7 @@ struct SubView: View {
                         .font(.footnote)
                         .frame(width: watchGeo.size.width * cellSize)
                     Text(Data2)
-                        .fontWeight(.bold)
+                        //.fontWeight(.bold)
                         .foregroundColor(Color.orange)
                         .frame(width: watchGeo.size.width * cellSize)
                     
@@ -48,7 +48,7 @@ struct SubView: View {
                         .font(.footnote)
                         .frame(width: watchGeo.size.width * cellSize)
                     Text(Data3)
-                        .fontWeight(.bold)
+                        //.fontWeight(.bold)
                         .foregroundColor(Color.yellow)
                         .frame(width: watchGeo.size.width * cellSize)
                 }
@@ -59,7 +59,7 @@ struct SubView: View {
                         .font(.footnote)
                         .frame(width: watchGeo.size.width * cellSize)
                     Text(Data4)
-                        .fontWeight(.bold)
+                        //.fontWeight(.bold)
                         .foregroundColor(Color.red)
                         .frame(width: watchGeo.size.width * cellSize)
                     
@@ -67,7 +67,7 @@ struct SubView: View {
                         .font(.footnote)
                         .frame(width: watchGeo.size.width * cellSize)
                     Text(Data5)
-                        .fontWeight(.bold)
+                        //.fontWeight(.bold)
                         .foregroundColor(Color.orange)
                         .frame(width: watchGeo.size.width * cellSize)
                     
@@ -75,7 +75,7 @@ struct SubView: View {
                         .font(.footnote)
                         .frame(width: watchGeo.size.width * cellSize)
                     Text(Data6)
-                        .fontWeight(.bold)
+                        //.fontWeight(.bold)
                         .foregroundColor(Color.yellow)
                         .frame(width: watchGeo.size.width * cellSize)
                 }
@@ -87,5 +87,7 @@ struct SubView: View {
 }
 
 #Preview {
-    SubView(Text1: "Full", Data1: "5:25", Text2: "80%", Data2: "1:20", Text3: "175K", Data3: "0:54", Text4: "Dur", Data4: "0:20", Text5: "kWh", Data5: "20", Text6: "@ kW", Data6: "2.4")
+    
+    //SubView(Text1: "Full", Data1: "5:25", Text2: "80%", Data2: "1:20", Text3: "175K", Data3: "0:54", Text4: "Dur", Data4: "0:20", Text5: "kWh", Data5: "20", Text6: "@ kW", Data6: "2.4")
+    SubView(Text1: "Wh/km", Data1: "165", Text2: "PWR", Data2: "2.2kW", Text3: "ODO", Data3: "12590", Text4: "Current", Data4: "5.9A", Text5: "Voltage", Data5: "382.5V", Text6: "12V", Data6: "12.5V")
 }

@@ -30,11 +30,9 @@ class WatchModel: NSObject, ObservableObject {
       if (payload.count>=8)
       {
         metricVal.soc = payload[0] as? String ?? "0"
-        //car_units = [lparts objectAtIndex:1];
+        //metricVal.units = [lparts objectAtIndex:1];
         metricVal.voltage = payload[2] as? String ?? "0"
-        //car_linevoltage = [[lparts objectAtIndex:2] intValue];
         metricVal.chargecurrent = payload[3] as? String ?? "0"
-        //car_chargecurrent = [[lparts objectAtIndex:3] intValue];
         metricVal.chargestate = payload[4] as? String ?? "0"
         if (metricVal.chargestate == "charging") {
           metricVal.charging = true
@@ -43,25 +41,18 @@ class WatchModel: NSObject, ObservableObject {
         }
         //car_chargestate = [lparts objectAtIndex:4];
         metricVal.mode = payload[5] as? String ?? "0"
-        //car_chargemode = [lparts objectAtIndex:5];
         metricVal.idealrange = payload[6] as? String ?? "0"
-        //car_idealrange = [[lparts objectAtIndex:6] intValue];
         metricVal.estimatedrange = payload[7] as? String ?? "0"
-        //car_estimatedrange = [[lparts objectAtIndex:7] intValue];
         //car_idealrange_s = [self convertDistanceUnits:car_idealrange];
         //car_estimatedrange_s = [self convertDistanceUnits:car_estimatedrange];
       }
       if (payload.count>=15)
       {
         metricVal.climit = payload[8] as? String ?? "0"
-        //car_chargelimit = [[lparts objectAtIndex:8] intValue];
         metricVal.chargeduration = payload[9] as? String ?? "0"
-        //car_chargeduration = [[lparts objectAtIndex:9] intValue];
         //metricVal.soc = payload[10] as? String ?? "0"
         //car_chargeb4 = [[lparts objectAtIndex:10] intValue];
         metricVal.chargekwh = payload[11] as? String ?? "0"
-        //car_chargekwh = [[lparts objectAtIndex:11] intValue] / 10;
-        //metricVal.ch = payload[0] as? String ?? "0"
         //car_chargesubstate = [[lparts objectAtIndex:12] intValue];
         //metricVal.soc = payload[0] as? String ?? "0"
         //car_chargestateN = [[lparts objectAtIndex:13] intValue];
@@ -76,19 +67,13 @@ class WatchModel: NSObject, ObservableObject {
       if (payload.count>=23)
       {
         metricVal.durationfull = payload[19] as? String ?? "0"
-        //car_minutestofull = [[lparts objectAtIndex:19] intValue];
         metricVal.limitrange = payload[21] as? String ?? "0"
-        //car_rangelimit = [[lparts objectAtIndex:21] intValue];
         metricVal.limitsoc = payload[22] as? String ?? "0"
-        //car_soclimit = [[lparts objectAtIndex:22] intValue];
       }
       if(payload.count>=31)
       {
-        //car_minutestorangelimit = [[lparts objectAtIndex:27] intValue];
         metricVal.durationrange = payload[27] as? String ?? "0"
-        //car_minutestosoclimit = [[lparts objectAtIndex:28] intValue];
         metricVal.durationsoc = payload[28] as? String ?? "0"
-        //car_chargetype = [[lparts objectAtIndex:30] intValue];
         metricVal.type = payload[30] as? String ?? "0"
       }
       break

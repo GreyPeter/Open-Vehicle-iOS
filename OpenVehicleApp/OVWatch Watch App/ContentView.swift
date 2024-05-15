@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct ContentView: View {
-  @ObservedObject var metrics = WatchModel.shared
+    @ObservedObject var metrics = WatchModel.shared
     var body: some View {
-      let metricVal = metrics.metricVal
+        let metricVal = metrics.metricVal
         let socDouble = Double(metricVal.soc) ?? 0.0
         let charging = metricVal.charging ? "CHARGING":"NOT CHARGING"
         GeometryReader { watchGeo in
@@ -47,9 +47,9 @@ struct ContentView: View {
                             .background(Color.clear)
                             .opacity(0.9))
                 if metricVal.charging {
-                    SubView(Text1: "Full", Data1: timeConvert(time: metricVal.durationfull), Text2: "\(metricVal.limitsoc)%", Data2: timeConvert(time: metricVal.durationsoc), Text3: "\(metricVal.limitrange)", Data3: timeConvert(time: metricVal.durationrange), Text4: "Dur", Data4: timeConvert(time: "\((Int(metricVal.chargeduration) ?? 0)/60)"), Text5: "kWh", Data5: String(format:"%0.1f",(Float(metricVal.chargekwh) ?? 0.00)), Text6: "@ kW", Data6: String(format:"%0.1f",(Float(metricVal.chargepower) ?? 0.00)))
+                    SubView(Text1: "Full", Data1: timeConvert(time: metricVal.durationfull), Text2: "\(metricVal.limitsoc)%", Data2: timeConvert(time: metricVal.durationsoc), Text3: "\(metricVal.limitrange)", Data3: timeConvert(time: metricVal.durationrange), Text4: "Dur", Data4: timeConvert(time: "\((Int(metricVal.chargeduration) ?? 0)/60)"), Text5: "kWh", Data5: String(format:"%0.1f",(Float(metricVal.chargekwh) ?? 0.0)), Text6: "@ kW", Data6: String(format:"%0.1f",(Float(metricVal.chargepower) ?? 0.0)))
                 } else {
-                    SubView(Text1: "Speed", Data1: String(format:"%0.1f",(Float(metricVal.gpsspeed) ?? 0.00)), Text2: "PWR", Data2: String(format:"%0.1fW",(Float(metricVal.power) ?? 0.00)), Text3: "ODO", Data3: String(format:"%0.0f",(Float(metricVal.odometer) ?? 0.0)), Text4: "Current", Data4: String(format:"%0.1fA",(Float(metricVal.current) ?? 0.00)), Text5: "Voltage", Data5: String(format:"%0.1f",(Float(metricVal.voltage) ?? 0.00)), Text6: "12V", Data6: String(format:"%0.1fV",(Float(metricVal.lowvoltage) ?? 0.0)))
+                    SubView(Text1: "Speed", Data1: String(format:"%0.0f",(Float(metricVal.gpsspeed) ?? 0.0) * 10.0), Text2: "PWR", Data2: String(format:"%0.1fW",(Float(metricVal.power) ?? 0.0)), Text3: "ODO", Data3: String(format:"%d",(Int(metricVal.odometer) ?? 0)/10), Text4: "Current", Data4: String(format:"%0.1fA",(Float(metricVal.current) ?? 0.0)), Text5: "Voltage", Data5: String(format:"%0.1fV",(Float(metricVal.voltage) ?? 0.0)), Text6: "12V", Data6: String(format:"%0.1fV",(Float(metricVal.lowvoltage) ?? 0.0)))
                 }
             }
         }

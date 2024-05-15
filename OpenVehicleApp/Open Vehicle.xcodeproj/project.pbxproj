@@ -567,6 +567,8 @@
 		D00175142BF41DCD0076A97B /* OVWatch_Widgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00175132BF41DCD0076A97B /* OVWatch_Widgets.swift */; };
 		D00175162BF41DCF0076A97B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D00175152BF41DCF0076A97B /* Assets.xcassets */; };
 		D001751A2BF41DCF0076A97B /* OVWatch WidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = D001750D2BF41DCD0076A97B /* OVWatch WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D0165C692BF43BC40044B17B /* WatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D046BAD32B902A6D00E5DE62 /* WatchModel.swift */; };
+		D0165C6A2BF440C50044B17B /* WatchMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = D046BAD52B902AAE00E5DE62 /* WatchMetric.swift */; };
 		D046BAD42B902A6D00E5DE62 /* WatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D046BAD32B902A6D00E5DE62 /* WatchModel.swift */; };
 		D046BAD62B902AAE00E5DE62 /* WatchMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = D046BAD52B902AAE00E5DE62 /* WatchMetric.swift */; };
 		D08A06F72B84B25C00CA15E4 /* OVWatchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08A06F62B84B25C00CA15E4 /* OVWatchApp.swift */; };
@@ -2957,6 +2959,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D00175142BF41DCD0076A97B /* OVWatch_Widgets.swift in Sources */,
+				D0165C692BF43BC40044B17B /* WatchModel.swift in Sources */,
+				D0165C6A2BF440C50044B17B /* WatchMetric.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
