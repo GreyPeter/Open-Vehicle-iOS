@@ -38,6 +38,9 @@
 @synthesize m_car_charge_time;
 @synthesize m_car_charge_kwh;
 @synthesize m_car_charge_remaining;
+@synthesize m_car_charge_remaining_soc;
+@synthesize m_car_charge_remaining_range;
+
 @synthesize m_car_aux_battery;
 @synthesize m_car_lights;
 @synthesize m_battery_charging;
@@ -313,6 +316,10 @@
   
   int chargetime = [ovmsAppDelegate myRef].car_chargeduration;
   int chargeremainingtime = [ovmsAppDelegate myRef].car_minutestofull;
+  int chargeremainingtimesoc = [ovmsAppDelegate myRef].car_minutestosoclimit;
+  int chargeremainingtimerange = [ovmsAppDelegate myRef].car_minutestorangelimit;
+  int chargesoclimit = [ovmsAppDelegate myRef].car_soclimit;
+  int chargerangelimit = [ovmsAppDelegate myRef].car_rangelimit;
   int chargekWh = [ovmsAppDelegate myRef].car_chargekwh;
 
   int connected = [ovmsAppDelegate myRef].car_connected;
@@ -476,7 +483,37 @@
                                             chargeremainingtime%60];
     }
     
-  if ( chargekWh==0 )
+  if (chargeremainingtimesoc <= 0)
+    {
+    m_car_charge_remaining_soc.text = @"";
+    }
+  else if (chargeremainingtimesoc < 60)
+    {
+    m_car_charge_remaining_soc.text = [NSString stringWithFormat:@"%d%% %d mins",chargesoclimit ,chargeremainingtimesoc];
+    }
+  else
+    {
+    m_car_charge_remaining_soc.text = [NSString stringWithFormat:@"%d%% %02d:%02d",chargesoclimit ,
+                                       chargeremainingtimesoc/60,
+                                       chargeremainingtimesoc%60];
+    }
+  
+  if (chargeremainingtimerange <= 0)
+    {
+    m_car_charge_remaining_range.text = @"";
+    }
+  else if (chargeremainingtimerange < 60)
+    {
+    m_car_charge_remaining_range.text = [NSString stringWithFormat:@"%dkm %d mins",chargerangelimit ,chargeremainingtimerange];
+    }
+  else
+    {
+      m_car_charge_remaining_range.text = [NSString stringWithFormat:@"%dkm %02d:%02d",chargerangelimit ,
+                                       chargeremainingtimerange/60,
+                                       chargeremainingtimerange%60];
+    }
+
+if ( chargekWh==0 )
     {
     m_car_charge_kwh.text = @"";
     }

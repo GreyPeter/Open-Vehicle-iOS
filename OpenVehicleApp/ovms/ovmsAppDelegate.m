@@ -60,6 +60,7 @@
 
 @synthesize car_minutestofull;
 @synthesize car_minutestorangelimit;
+@synthesize car_minutestosoclimit;
 @synthesize car_rangelimit;
 @synthesize car_soclimit;
 
@@ -123,6 +124,13 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  if ([WCSession isSupported]) {
+    self.session = [WCSession defaultSession];
+    self.session.delegate = self;
+    [self.session activateSession];
+    
+    NSLog(@"WCSession Started");
+  }
   // Set the application defaults
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   NSDictionary *appDefaults = [NSDictionary
@@ -568,6 +576,7 @@
     
   car_minutestofull = -1;
   car_minutestorangelimit = -1;
+  car_minutestosoclimit = -1;
   car_rangelimit = -1;
   car_soclimit = -1;
     
@@ -690,6 +699,14 @@
     case 'S': // STATUS
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
+        [self sendWatchMessage:@"S" message:lparts];
+//        if (self.session.isReachable) {
+//          [self.session sendMessage:@{@"topic":@"S"} replyHandler:nil errorHandler:nil];
+//          [self.session sendMessage:@{@"S":lparts} replyHandler:nil errorHandler:nil];
+//          NSLog(@"WCSession message sent: S");
+//        } else {
+//          NSLog(@"WCSession not reachable");
+//        }
       if ([lparts count]>=8)
         {
         car_soc = [[lparts objectAtIndex:0] intValue];
@@ -726,6 +743,8 @@
         }
       if([lparts count]>=31)
         {
+        car_minutestorangelimit = [[lparts objectAtIndex:27] intValue];
+        car_minutestosoclimit = [[lparts objectAtIndex:28] intValue];
         car_chargetype = [[lparts objectAtIndex:30] intValue];
         }
       }
@@ -740,6 +759,14 @@
     case 'L': // LOCATION
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
+        [self sendWatchMessage:@"L" message:lparts];
+//        if (self.session.isReachable) {
+//          [self.session sendMessage:@{@"topic":@"L"} replyHandler:nil errorHandler:nil];
+//          [self.session sendMessage:@{@"L":lparts} replyHandler:nil errorHandler:nil];
+//          NSLog(@"WCSession message sent: L");
+//        } else {
+//          NSLog(@"WCSession not reachable");
+//        }
       if ([lparts count]>=2)
         {
         car_location.latitude = [[lparts objectAtIndex:0] doubleValue];
@@ -818,6 +845,14 @@
     case 'D': // CAR ENVIRONMENT
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
+      [self sendWatchMessage:@"D" message:lparts];
+//        if (self.session.isReachable) {
+//          [self.session sendMessage:@{@"topic":@"D"} replyHandler:nil errorHandler:nil];
+//          [self.session sendMessage:@{@"D":lparts} replyHandler:nil errorHandler:nil];
+//          NSLog(@"WCSession message sent: D");
+//        } else {
+//          NSLog(@"WCSession not reachable");
+//        }
       if ([lparts count]>=9)
         {
         car_doors1 = [[lparts objectAtIndex:0] intValue];
@@ -1664,5 +1699,27 @@ else
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[mapURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 }
 
+- (void)sendWatchMessage:(NSString*)topic message:(NSArray*)lparts {
+  if (self.session.isReachable) {
+    [self.session sendMessage:@{@"topic":topic} replyHandler:nil errorHandler:nil];
+    [self.session sendMessage:@{topic:lparts} replyHandler:nil errorHandler:nil];
+    NSLog(@"WCSession message sent: %@", topic);
+  } else {
+    NSLog(@"WCSession not reachable");
+  }
+}
+
+- (void)sessionDidBecomeInactive:(WCSession *)session {
+  NSLog(@"WCSession Became Inactive");
+}
+
+- (void)sessionDidDeactivate:(WCSession *)session {
+  NSLog(@"WCSession Deactivated");
+  [self.session activateSession];
+}
+
+- (void)session:(nonnull WCSession *)session activationDidCompleteWithState:(WCSessionActivationState)activationState error:(nullable NSError *)error {
+  NSLog(@"WCSession Activation Error");
+}
 
 @end
