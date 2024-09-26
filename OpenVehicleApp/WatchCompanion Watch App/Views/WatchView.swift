@@ -43,9 +43,12 @@ struct WatchView: View {
         let carMode = metrics.carMode
         GeometryReader { watchGeo in
             VStack {
-              Text(carMode.identifier)
-                    .foregroundColor(.red)
-                    .font(.title3)
+              Button(carMode.identifier) {
+                metrics.getChargeData()
+              }
+//              Text(carMode.identifier)
+//                    .foregroundColor(.red)
+//                    .font(.title3)
                 Image("battery_000")
                     .resizable()
                     .scaledToFit()

@@ -700,13 +700,6 @@
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
         [self sendWatchMessage:@"S" message:lparts];
-//        if (self.session.isReachable) {
-//          [self.session sendMessage:@{@"topic":@"S"} replyHandler:nil errorHandler:nil];
-//          [self.session sendMessage:@{@"S":lparts} replyHandler:nil errorHandler:nil];
-//          NSLog(@"WCSession message sent: S");
-//        } else {
-//          NSLog(@"WCSession not reachable");
-//        }
       if ([lparts count]>=8)
         {
         car_soc = [[lparts objectAtIndex:0] intValue];
@@ -760,13 +753,6 @@
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
         [self sendWatchMessage:@"L" message:lparts];
-//        if (self.session.isReachable) {
-//          [self.session sendMessage:@{@"topic":@"L"} replyHandler:nil errorHandler:nil];
-//          [self.session sendMessage:@{@"L":lparts} replyHandler:nil errorHandler:nil];
-//          NSLog(@"WCSession message sent: L");
-//        } else {
-//          NSLog(@"WCSession not reachable");
-//        }
       if ([lparts count]>=2)
         {
         car_location.latitude = [[lparts objectAtIndex:0] doubleValue];
@@ -846,13 +832,6 @@
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
       [self sendWatchMessage:@"D" message:lparts];
-//        if (self.session.isReachable) {
-//          [self.session sendMessage:@{@"topic":@"D"} replyHandler:nil errorHandler:nil];
-//          [self.session sendMessage:@{@"D":lparts} replyHandler:nil errorHandler:nil];
-//          NSLog(@"WCSession message sent: D");
-//        } else {
-//          NSLog(@"WCSession not reachable");
-//        }
       if ([lparts count]>=9)
         {
         car_doors1 = [[lparts objectAtIndex:0] intValue];
@@ -1699,9 +1678,20 @@ else
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[mapURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
 }
 
+- (void) session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message replyHandler:(void (^)(NSDictionary<NSString *,id> * _Nonnull))replyHandler {
+  
+  dispatch_async(dispatch_get_main_queue(), ^{
+          NSLog(@"didReceiveMessage called in apple watch");
+          
+      });
+      
+      NSDictionary *temp = @{@"reply":@"reply from iphone"};
+      replyHandler(temp);
+}
+
 - (void)sendWatchMessage:(NSString*)topic message:(NSArray*)lparts {
   if (self.session.isReachable) {
-    [self.session sendMessage:@{@"topic":topic} replyHandler:nil errorHandler:nil];
+    //[self.session sendMessage:@{@"topic":topic} replyHandler:nil errorHandler:nil];
     [self.session sendMessage:@{topic:lparts} replyHandler:nil errorHandler:nil];
     NSLog(@"WCSession message sent: %@", topic);
   } else {
