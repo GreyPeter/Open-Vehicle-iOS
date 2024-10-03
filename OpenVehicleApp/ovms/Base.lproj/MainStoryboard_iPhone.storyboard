@@ -64,6 +64,9 @@
                                         <nil key="highlightedColor"/>
                                         <size key="shadowOffset" width="0.0" height="0.0"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="charger_plug.png" translatesAutoresizingMaskIntoConstraints="NO" id="Geg-T8-Lqj">
+                                        <rect key="frame" x="0.0" y="5" width="343" height="70"/>
+                                    </imageView>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="STANDARD" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="as8-eT-6NH" userLabel="car_charge_state">
                                         <rect key="frame" x="168" y="25" width="56" height="13"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -97,26 +100,20 @@
                                             <action selector="ChargeSliderValue:" destination="2" eventType="valueChanged" id="zKo-92-726"/>
                                         </connections>
                                     </slider>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" image="charger_plug.png" translatesAutoresizingMaskIntoConstraints="NO" id="Geg-T8-Lqj">
-                                        <rect key="frame" x="-62" y="-4" width="343" height="70"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="343" id="CRW-sp-VWF"/>
-                                            <constraint firstAttribute="height" constant="70" id="g0K-aZ-K1m"/>
-                                        </constraints>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="dxg-Z5-kDR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6ua-pa-8YC" secondAttribute="leading" constant="20" symbolic="YES" id="2Ma-Jg-vuI"/>
-                                    <constraint firstItem="Geg-T8-Lqj" firstAttribute="leading" secondItem="6ua-pa-8YC" secondAttribute="leading" id="3CS-kT-iAK"/>
+                                    <constraint firstItem="Geg-T8-Lqj" firstAttribute="centerY" secondItem="6ua-pa-8YC" secondAttribute="centerY" id="8cV-DG-XBs"/>
                                     <constraint firstAttribute="width" constant="375" id="QqF-Da-pBO"/>
+                                    <constraint firstItem="Geg-T8-Lqj" firstAttribute="leading" secondItem="6ua-pa-8YC" secondAttribute="leading" id="T0C-hS-obk"/>
                                     <constraint firstAttribute="bottom" secondItem="Tjp-Kr-c3l" secondAttribute="bottom" constant="33" id="UUW-YA-IWv"/>
-                                    <constraint firstAttribute="bottom" secondItem="Geg-T8-Lqj" secondAttribute="bottom" constant="5" id="UcY-3F-uSb"/>
                                     <constraint firstItem="as8-eT-6NH" firstAttribute="leading" secondItem="6ua-pa-8YC" secondAttribute="leading" constant="168" id="W14-o9-cwh"/>
                                     <constraint firstItem="dxg-Z5-kDR" firstAttribute="top" secondItem="6ua-pa-8YC" secondAttribute="top" constant="25" id="fA6-UE-EpX"/>
                                     <constraint firstItem="8Nu-Np-kIL" firstAttribute="leading" secondItem="6ua-pa-8YC" secondAttribute="leading" constant="168" id="fgP-7n-fgR"/>
                                     <constraint firstAttribute="bottom" secondItem="8Nu-Np-kIL" secondAttribute="bottom" constant="32" id="gaV-WD-07D"/>
+                                    <constraint firstAttribute="trailing" secondItem="Geg-T8-Lqj" secondAttribute="trailing" constant="32" id="iKV-Eh-Kmf"/>
                                     <constraint firstAttribute="trailing" secondItem="dxg-Z5-kDR" secondAttribute="trailing" constant="93" id="ijc-wO-UgW"/>
                                     <constraint firstAttribute="bottom" secondItem="as8-eT-6NH" secondAttribute="bottom" constant="42" id="p2Q-K8-hdD"/>
                                     <constraint firstAttribute="height" constant="80" id="uIz-qa-B1r"/>
@@ -185,12 +182,11 @@
                                         <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="shadowOffset" width="2" height="2"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" text="STANDARD" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="DOE-r2-aEW" userLabel="battery_charge_mode">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="STANDARD" textAlignment="right" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="DOE-r2-aEW" userLabel="battery_charge_mode">
                                         <rect key="frame" x="129" y="52" width="104" height="14"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="104" id="gaV-ld-d2Q"/>
-                                            <constraint firstAttribute="height" constant="14" id="ygO-Wn-A9F"/>
+                                            <constraint firstAttribute="width" constant="104" id="WI0-lL-gyD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="12"/>
                                         <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -201,8 +197,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chg Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1p-0y-KDl" userLabel="battery_charge_time">
                                         <rect key="frame" x="25" y="36" width="80" height="14"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="14" id="OtC-i0-JUk"/>
-                                            <constraint firstAttribute="width" constant="80" id="tOO-7f-LOS"/>
+                                            <constraint firstAttribute="width" constant="80" id="Zc1-7Q-H6o"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="11"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -212,10 +207,6 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chg kWh" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4fU-jP-Msu" userLabel="battery_charge_kwh">
                                         <rect key="frame" x="25" y="52" width="104" height="14"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="104" id="PdH-m2-d6B"/>
-                                            <constraint firstAttribute="height" constant="14" id="UkN-aH-Fjj"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="11"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -224,10 +215,6 @@
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chg Rem" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C4j-Z1-IjW" userLabel="battery_charge_remaining_time">
                                         <rect key="frame" x="161" y="36" width="75" height="14"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="14" id="WGD-x9-Xih"/>
-                                            <constraint firstAttribute="width" constant="75" id="cIn-4P-VT3"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="11"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -241,7 +228,7 @@
                                         <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Chg Rem Soc" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buM-FE-0QG" userLabel="battery_charge_remaining_time_soc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chg Rem Soc" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="buM-FE-0QG" userLabel="battery_charge_remaining_time_soc">
                                         <rect key="frame" x="158" y="14" width="75" height="14"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="11"/>
                                         <color key="textColor" red="0.86769347829999999" green="0.64797607509999999" blue="0.16105017269999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -254,58 +241,50 @@
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="C4i-5V-3e1" secondAttribute="bottom" constant="5" id="0nZ-Ur-o6X"/>
-                                    <constraint firstAttribute="bottom" secondItem="4fU-jP-Msu" secondAttribute="bottom" constant="14" id="1r9-tI-W2u"/>
+                                    <constraint firstItem="C4j-Z1-IjW" firstAttribute="top" secondItem="buM-FE-0QG" secondAttribute="bottom" constant="8" id="1jo-9P-YnA"/>
                                     <constraint firstAttribute="bottom" secondItem="fN9-TR-Ojm" secondAttribute="bottom" constant="5" id="21L-tA-3gr"/>
                                     <constraint firstItem="fN9-TR-Ojm" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="5" id="2HI-Pb-dpE"/>
-                                    <constraint firstAttribute="trailing" secondItem="DOE-r2-aEW" secondAttribute="trailing" constant="45" id="2VG-bH-D8N"/>
-                                    <constraint firstItem="DOE-r2-aEW" firstAttribute="top" secondItem="d1p-0y-KDl" secondAttribute="bottom" constant="7" id="3AI-9p-dk4"/>
-                                    <constraint firstItem="gqu-Ar-Cgb" firstAttribute="trailing" secondItem="d1p-0y-KDl" secondAttribute="trailing" id="3gT-Dt-I8o"/>
-                                    <constraint firstItem="buM-FE-0QG" firstAttribute="top" secondItem="h1L-TI-gis" secondAttribute="top" constant="14" id="5a2-tT-bB4"/>
-                                    <constraint firstItem="d1p-0y-KDl" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="6KA-Ri-xzM"/>
+                                    <constraint firstItem="DOE-r2-aEW" firstAttribute="leading" secondItem="4fU-jP-Msu" secondAttribute="trailing" id="2WO-Bt-zvk"/>
                                     <constraint firstAttribute="bottom" secondItem="zYR-tz-88R" secondAttribute="bottom" constant="5" id="6bC-hn-m5L"/>
-                                    <constraint firstItem="4fU-jP-Msu" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="71l-mo-iFv"/>
                                     <constraint firstAttribute="bottom" secondItem="OLs-ET-xq8" secondAttribute="bottom" constant="5" id="7nM-y8-f8L"/>
-                                    <constraint firstItem="4fU-jP-Msu" firstAttribute="top" secondItem="d1p-0y-KDl" secondAttribute="bottom" constant="2" id="8pU-j7-ss8"/>
-                                    <constraint firstItem="gqu-Ar-Cgb" firstAttribute="leading" secondItem="d1p-0y-KDl" secondAttribute="leading" id="9P0-3z-UIn"/>
-                                    <constraint firstItem="buM-FE-0QG" firstAttribute="baseline" secondItem="gqu-Ar-Cgb" secondAttribute="baseline" id="9x4-Rs-9z6"/>
+                                    <constraint firstItem="d1p-0y-KDl" firstAttribute="baseline" secondItem="C4j-Z1-IjW" secondAttribute="baseline" id="8oM-5w-zfE"/>
                                     <constraint firstAttribute="trailing" secondItem="C4i-5V-3e1" secondAttribute="trailing" constant="5" id="B5t-gV-6p5"/>
                                     <constraint firstItem="zYR-tz-88R" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="BaP-Qw-xES"/>
-                                    <constraint firstItem="C4j-Z1-IjW" firstAttribute="leading" secondItem="d1p-0y-KDl" secondAttribute="trailing" constant="56" id="Cmn-aI-clZ"/>
-                                    <constraint firstItem="DOE-r2-aEW" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="HoH-Lf-J7z"/>
+                                    <constraint firstAttribute="trailing" secondItem="C4j-Z1-IjW" secondAttribute="trailing" constant="42" id="C3P-9U-eC4"/>
+                                    <constraint firstItem="d1p-0y-KDl" firstAttribute="leading" secondItem="gqu-Ar-Cgb" secondAttribute="leading" id="GH0-jI-rOP"/>
                                     <constraint firstItem="OLs-ET-xq8" firstAttribute="top" secondItem="h1L-TI-gis" secondAttribute="top" constant="5" id="JFB-vF-6bK"/>
-                                    <constraint firstAttribute="trailing" secondItem="C4j-Z1-IjW" secondAttribute="trailing" constant="45" id="MEW-Ha-hNG"/>
                                     <constraint firstAttribute="height" constant="80" id="O8L-Wg-ZHE"/>
-                                    <constraint firstAttribute="bottom" secondItem="DOE-r2-aEW" secondAttribute="bottom" constant="9" id="Og4-EC-Ojg"/>
-                                    <constraint firstItem="DOE-r2-aEW" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="Pa9-65-MaQ"/>
                                     <constraint firstAttribute="trailing" secondItem="OLs-ET-xq8" secondAttribute="trailing" constant="5" id="PlO-PZ-99N"/>
                                     <constraint firstItem="C4i-5V-3e1" firstAttribute="top" secondItem="h1L-TI-gis" secondAttribute="top" constant="5" id="Qfm-Ml-lbF"/>
                                     <constraint firstItem="CKU-Hj-ZF9" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="5" id="Qkm-Wj-enH"/>
+                                    <constraint firstItem="C4j-Z1-IjW" firstAttribute="leading" secondItem="d1p-0y-KDl" secondAttribute="trailing" constant="56" id="QpY-ua-xPp"/>
                                     <constraint firstItem="OLs-ET-xq8" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="5" id="SaB-xE-Qqi"/>
                                     <constraint firstAttribute="trailing" secondItem="zYR-tz-88R" secondAttribute="trailing" constant="45" id="SjG-pA-Zca"/>
                                     <constraint firstItem="OLs-ET-xq8" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="5" id="SmU-rT-EIk"/>
                                     <constraint firstItem="fN9-TR-Ojm" firstAttribute="top" secondItem="h1L-TI-gis" secondAttribute="top" constant="5" id="U0V-Sf-3Bw"/>
-                                    <constraint firstItem="buM-FE-0QG" firstAttribute="trailing" secondItem="DOE-r2-aEW" secondAttribute="trailing" id="UMn-1L-yMy"/>
+                                    <constraint firstItem="DOE-r2-aEW" firstAttribute="top" secondItem="C4j-Z1-IjW" secondAttribute="bottom" constant="2" id="UX5-LB-VPg"/>
                                     <constraint firstItem="C4i-5V-3e1" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="5" id="VBF-c5-Qbd"/>
                                     <constraint firstAttribute="trailing" secondItem="fN9-TR-Ojm" secondAttribute="trailing" constant="5" id="VF7-qa-8am"/>
+                                    <constraint firstItem="DOE-r2-aEW" firstAttribute="trailing" secondItem="buM-FE-0QG" secondAttribute="trailing" id="W19-9Y-Ohv"/>
+                                    <constraint firstItem="buM-FE-0QG" firstAttribute="leading" secondItem="gqu-Ar-Cgb" secondAttribute="trailing" constant="53" id="WaN-TR-ASY"/>
+                                    <constraint firstItem="d1p-0y-KDl" firstAttribute="leading" secondItem="zYR-tz-88R" secondAttribute="leading" id="WeX-he-Tdb"/>
+                                    <constraint firstItem="gqu-Ar-Cgb" firstAttribute="baseline" secondItem="zYR-tz-88R" secondAttribute="firstBaseline" id="XBo-gG-RVk"/>
                                     <constraint firstAttribute="width" constant="278" id="XIx-cj-FQB"/>
                                     <constraint firstAttribute="bottom" secondItem="fN9-TR-Ojm" secondAttribute="bottom" constant="5" id="ZC5-Qg-ORH"/>
-                                    <constraint firstItem="C4j-Z1-IjW" firstAttribute="top" secondItem="buM-FE-0QG" secondAttribute="bottom" constant="5" id="aYy-Iu-mJL"/>
-                                    <constraint firstAttribute="bottom" secondItem="DOE-r2-aEW" secondAttribute="bottom" constant="9" id="b8J-CP-luc"/>
+                                    <constraint firstItem="DOE-r2-aEW" firstAttribute="baseline" secondItem="4fU-jP-Msu" secondAttribute="baseline" id="Zjf-HO-Vih"/>
+                                    <constraint firstItem="DOE-r2-aEW" firstAttribute="trailing" secondItem="zYR-tz-88R" secondAttribute="trailing" id="bme-0X-4a5"/>
                                     <constraint firstItem="zYR-tz-88R" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="bog-Eh-V27"/>
+                                    <constraint firstItem="d1p-0y-KDl" firstAttribute="leading" secondItem="4fU-jP-Msu" secondAttribute="leading" id="cAs-NO-Vro"/>
                                     <constraint firstItem="fN9-TR-Ojm" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="5" id="cBS-0d-ISi"/>
                                     <constraint firstAttribute="bottom" secondItem="CKU-Hj-ZF9" secondAttribute="bottom" constant="5" id="cL5-ye-5aP"/>
-                                    <constraint firstItem="DOE-r2-aEW" firstAttribute="top" secondItem="C4j-Z1-IjW" secondAttribute="bottom" constant="7" id="cSc-uj-Qz2"/>
-                                    <constraint firstItem="d1p-0y-KDl" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="f0d-Wu-P6f"/>
+                                    <constraint firstAttribute="bottom" secondItem="4fU-jP-Msu" secondAttribute="bottom" constant="14" id="hKJ-AE-zzg"/>
                                     <constraint firstAttribute="bottom" secondItem="OLs-ET-xq8" secondAttribute="bottom" constant="5" id="kfH-Gm-WkW"/>
                                     <constraint firstAttribute="bottom" secondItem="zYR-tz-88R" secondAttribute="bottom" constant="5" id="l4z-wZ-yK4"/>
-                                    <constraint firstItem="DOE-r2-aEW" firstAttribute="top" secondItem="C4j-Z1-IjW" secondAttribute="bottom" constant="7" id="mmr-16-DnV"/>
                                     <constraint firstAttribute="bottom" secondItem="C4i-5V-3e1" secondAttribute="bottom" constant="5" id="nvE-IH-SpE"/>
                                     <constraint firstItem="zYR-tz-88R" firstAttribute="top" secondItem="h1L-TI-gis" secondAttribute="top" constant="5" id="qhf-UF-l6d"/>
                                     <constraint firstItem="C4i-5V-3e1" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="5" id="sfE-MV-SIN"/>
-                                    <constraint firstItem="4fU-jP-Msu" firstAttribute="leading" secondItem="h1L-TI-gis" secondAttribute="leading" constant="25" id="tSZ-AH-F3i"/>
                                     <constraint firstItem="CKU-Hj-ZF9" firstAttribute="top" secondItem="h1L-TI-gis" secondAttribute="top" constant="5" id="vRD-qJ-e0q"/>
-                                    <constraint firstItem="buM-FE-0QG" firstAttribute="leading" secondItem="gqu-Ar-Cgb" secondAttribute="trailing" constant="53" id="w1i-rE-TWR"/>
-                                    <constraint firstAttribute="bottom" secondItem="4fU-jP-Msu" secondAttribute="bottom" constant="14" id="yTd-EG-VMc"/>
+                                    <constraint firstItem="d1p-0y-KDl" firstAttribute="trailing" secondItem="gqu-Ar-Cgb" secondAttribute="trailing" id="xth-wO-oBA"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8K-8x-nA0" userLabel="Range View">

@@ -699,7 +699,7 @@
     case 'S': // STATUS
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
-        [self sendWatchMessage:@"S" message:lparts];
+        //[self sendWatchMessage:@"S" message:lparts];
       if ([lparts count]>=8)
         {
         car_soc = [[lparts objectAtIndex:0] intValue];
@@ -752,7 +752,7 @@
     case 'L': // LOCATION
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
-        [self sendWatchMessage:@"L" message:lparts];
+        //[self sendWatchMessage:@"L" message:lparts];
       if ([lparts count]>=2)
         {
         car_location.latitude = [[lparts objectAtIndex:0] doubleValue];
@@ -831,7 +831,7 @@
     case 'D': // CAR ENVIRONMENT
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
-      [self sendWatchMessage:@"D" message:lparts];
+      //[self sendWatchMessage:@"D" message:lparts];
       if ([lparts count]>=9)
         {
         car_doors1 = [[lparts objectAtIndex:0] intValue];
@@ -1679,25 +1679,50 @@ else
 }
 
 - (void) session:(WCSession *)session didReceiveMessage:(NSDictionary<NSString *,id> *)message replyHandler:(void (^)(NSDictionary<NSString *,id> * _Nonnull))replyHandler {
-  
   dispatch_async(dispatch_get_main_queue(), ^{
-          NSLog(@"didReceiveMessage called in apple watch");
-          
-      });
-      
-      NSDictionary *temp = @{@"reply":@"reply from iphone"};
-      replyHandler(temp);
+    NSLog(@"didReceiveMessage called in apple watch");
+    NSString *received = [message objectForKey:@"msg"];
+    if ([received  isEqualToString: @"charge"]) {
+      NSDictionary *data = @{@"soc":[NSNumber numberWithInt:self.car_soc],
+                             @"charging":self.car_chargestate,
+                             @"durationfull":[NSNumber numberWithInt:self.car_minutestofull],
+                             @"limitsoc":[NSNumber numberWithInt:self.car_soclimit],
+                             @"limitrange":[NSNumber numberWithInt:self.car_rangelimit],
+                             @"durationsoc":[NSNumber numberWithInt:self.car_minutestosoclimit],
+                             @"durationrange":[NSNumber numberWithInt:self.car_minutestorangelimit],
+                             @"chargeduration":[NSNumber numberWithInt:self.car_chargeduration],
+                             @"chargekwh":[NSNumber numberWithInt:self.car_chargekwh],
+                             @"trip":[NSNumber numberWithInt:self.car_minutestofull],
+                             @"gpsspeed":[NSNumber numberWithInt:self.car_speed],
+                             @"odometer":[NSNumber numberWithInt:self.car_odometer],
+                             //@"power":[NSNumber numberWithInt:self.car_minutestofull],
+                             @"current":[NSNumber numberWithInt:self.car_chargecurrent],
+                             @"voltage":[NSNumber numberWithInt:self.car_linevoltage],
+                             @"power":[NSNumber numberWithDouble:self.car_linevoltage * self.car_chargecurrent / 1000.0],
+                             @"lowvoltage":[NSNumber numberWithInt:self.car_aux_battery_voltage],
+                             @"estrange":[NSNumber numberWithInt:self.car_estimatedrange],
+                             @"doors1":[NSNumber numberWithInt:self.car_doors1]
+      };
+      replyHandler(@{@"reply":data});
+//    } else if ([received  isEqualToString: @"driving"]) {
+//      replyHandler(@{@"reply":@"Asked for driving"});
+//    } else if ([received  isEqualToString: @"parked"]) {
+//      replyHandler(@{@"reply":@"Asked for parked"});
+    } else {
+      replyHandler(@{@"reply":@"Not Found"});
+    }
+  });
 }
 
-- (void)sendWatchMessage:(NSString*)topic message:(NSArray*)lparts {
-  if (self.session.isReachable) {
-    //[self.session sendMessage:@{@"topic":topic} replyHandler:nil errorHandler:nil];
-    [self.session sendMessage:@{topic:lparts} replyHandler:nil errorHandler:nil];
-    NSLog(@"WCSession message sent: %@", topic);
-  } else {
-    NSLog(@"WCSession not reachable");
-  }
-}
+//- (void)sendWatchMessage:(NSString*)topic message:(NSArray*)lparts {
+//  if (self.session.isReachable) {
+//    //[self.session sendMessage:@{@"topic":topic} replyHandler:nil errorHandler:nil];
+//    [self.session sendMessage:@{topic:lparts} replyHandler:nil errorHandler:nil];
+//    NSLog(@"WCSession message sent: %@", topic);
+//  } else {
+//    NSLog(@"WCSession not reachable");
+//  }
+//}
 
 - (void)sessionDidBecomeInactive:(WCSession *)session {
   NSLog(@"WCSession Became Inactive");

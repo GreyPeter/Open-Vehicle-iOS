@@ -38,7 +38,7 @@ class WatchModel: NSObject, ObservableObject {
   
   var statusCharging = false
   var charging = false
-
+  var sessionAvailable = false
   var topic = ""
   var session: WCSession
   
@@ -50,8 +50,7 @@ class WatchModel: NSObject, ObservableObject {
   }
   
   func setMetric(message:String, payload:NSArray) {
-      os_log(.debug, log: .watch, "Received message: \(message)")
-      //print("Message received: \(message)")
+      //os_log(.debug, log: .watch, "Received message: \(message)")
       switch message {
       case "S":
         if (payload.count>=8)
@@ -189,25 +188,60 @@ extension WatchModel: WCSessionDelegate {
   
   func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
     DispatchQueue.main.async {
-      if let payload = message["S"] as? NSArray {
-        self.setMetric(message: "S", payload: payload)
-      } else if let payload = message["D"] as? NSArray {
-        self.setMetric(message: "D", payload: payload)
-      } else if let payload = message["L"] as? NSArray {
-        self.setMetric(message: "L", payload: payload)
-      } else {
-        os_log(.error, log: .watch, "Received message not decoded")
-      }
+      os_log(.error, log: .watch, "Received message")
+//      if let payload = message["S"] as? NSArray {
+//        self.setMetric(message: "S", payload: payload)
+//      } else if let payload = message["D"] as? NSArray {
+//        self.setMetric(message: "D", payload: payload)
+//      } else if let payload = message["L"] as? NSArray {
+//        self.setMetric(message: "L", payload: payload)
+//      } else {
+//        os_log(.error, log: .watch, "Received message not decoded")
+//      }
     }
   }
   
   func getChargeData() {
-    let message = ["msg": ["charge"]]
-    session.sendMessage(message, replyHandler: { (payload) in
-      let reply = payload["reply"] as! String
-      os_log(.debug, log: .watch, "Received reply: %s", reply)
-    }, errorHandler: { error in
-      os_log(.debug, log: .watch, "Error: %s", error.localizedDescription)
-    })
+    if session.isReachable {
+      sessionAvailable = true
+      let message = ["msg": "charge"]
+      session.sendMessage(message, replyHandler: { (payload) in
+        let reply = payload["reply"] as! Dictionary<String, Any>
+        DispatchQueue.main.async{
+          self.metricVal.soc = String(reply["soc"] as! Int)
+          self.metricVal.chargestate = reply["charging"] as! String
+          self.metricVal.durationfull = String(reply["durationfull"] as! Int)
+          self.metricVal.limitsoc = String(reply["limitsoc"] as! Int)
+          self.metricVal.limitrange = String(reply["limitrange"] as! Int)
+          self.metricVal.durationsoc = String(reply["durationsoc"] as! Int)
+          self.metricVal.durationrange = String(reply["durationrange"] as! Int)
+          self.metricVal.chargeduration = String(reply["chargeduration"] as! Int)
+          self.metricVal.chargekwh = String(reply["chargekwh"] as! Int)
+          self.metricVal.gpsspeed = String(reply["gpsspeed"] as! Int)
+          self.metricVal.odometer = String(reply["odometer"] as! Int)
+          self.metricVal.current = String(reply["current"] as! Int)
+          self.metricVal.voltage = String(reply["voltage"] as! Int)
+          self.metricVal.power = String(reply["power"] as! Double)
+          self.metricVal.lowvoltage = String(reply["lowvoltage"] as! Int)
+          self.metricVal.estimatedrange = String(reply["estrange"] as! Int)
+          self.metricVal.doors1 = reply["doors1"] as! Int
+          let trip = reply["trip"] as! Double
+          let doors = Doors(rawValue: self.metricVal.doors1)
+          self.metricVal.on = doors.contains(.carOn)
+          self.metricVal.cp_dooropen = doors.contains(.chargePort)
+          if (self.metricVal.chargestate == "charging") {
+            self.metricVal.charging = true
+          } else {
+            self.metricVal.charging = false
+          }
+        }
+        os_log(.debug, log: .watch, "Received reply")
+      }, errorHandler: { error in
+        os_log(.debug, log: .watch, "Error: %s", error.localizedDescription)
+      })
+    } else {
+      sessionAvailable = false
+      os_log(.error, log: .watch, "Session not reachable")
+    }
   }
 }
