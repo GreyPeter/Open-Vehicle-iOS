@@ -72,6 +72,8 @@ struct WatchMetric: Hashable, Codable {
   var rr: String
   var trunk: String
   
+  var trip: Double
+  
   static let initial = WatchMetric(
     //c
     charging: false,
@@ -134,7 +136,8 @@ struct WatchMetric: Hashable, Codable {
     hood: "0",
     rl: "0",
     rr: "0",
-    trunk: "0"
+    trunk: "0",
     
+    trip: 0.0
   )
 }

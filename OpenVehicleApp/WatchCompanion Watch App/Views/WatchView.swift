@@ -86,11 +86,28 @@ struct WatchView: View {
             }
               .background(Color.clear)
               .opacity(0.9))
-        if metricVal.charging {
-          SubView(Text1: "Full", Data1: timeConvert(time: metricVal.durationfull), Text2: "\(metricVal.limitsoc)%", Data2: timeConvert(time: metricVal.durationsoc), Text3: "\(metricVal.limitrange)K", Data3: timeConvert(time: metricVal.durationrange), Text4: "Dur", Data4: timeConvert(time: "\((Int(metricVal.chargeduration) ?? 0)/60)"), Text5: "kWh", Data5: String(format:"%0.1f",(Float(metricVal.chargekwh) ?? 0.00)), Text6: "@ kW", Data6: String(format:"%0.1f",(Float(metricVal.power) ?? 0.00)))
-        } else {
-          
-          SubView(Text1: "Speed", Data1: String(format:"%0.1f",(Float(metricVal.gpsspeed) ?? 0.00)), Text2: "ODO", Data2: String(format:"%0.0f",(Float(metricVal.odometer) ?? 0.0)/*/10*/),Text3: "PWR", Data3: String(format:"%0.1fW",(Float(metricVal.power) ?? 0.00)), Text4: "Current", Data4: String(format:"%0.1fA",(Float(metricVal.current) ?? 0.00)), Text5: "Voltage", Data5: String(format:"%0.1f",(Float(metricVal.voltage) ?? 0.00)), Text6: "12V", Data6: String(format:"%0.1fV",(Float(metricVal.lowvoltage) ?? 0.0)))
+        switch carMode {
+        case .charging:
+          SubView(Text1: "Full", Data1: timeConvert(time: metricVal.durationfull),
+                  Text2: "\(metricVal.limitsoc)%", Data2: timeConvert(time: metricVal.durationsoc),
+                  Text3: "\(metricVal.limitrange)K", Data3: timeConvert(time: metricVal.durationrange),
+                  Text4: "Dur", Data4: timeConvert(time: "\((Int(metricVal.chargeduration) ?? 0)/60)"),
+                  Text5: "kWh", Data5: String(format:"%0.1f",(Float(metricVal.chargekwh) ?? 0.00)),
+                  Text6: "@ kW", Data6: String(format:"%0.1f",(Float(metricVal.power) ?? 0.00)))
+        case .driving:
+          SubView(Text1: "PWR", Data1: String(format:"%0.1f",(Float(metricVal.power) ?? 0.00)),
+                  Text2: "ODO", Data2: metricVal.odometer,
+                  Text3: "Cons", Data3: String(format:"%0.2f",(Float(metricVal.consumption) ?? 0.00)),
+                  Text4: "Time", Data4: String(format:"%0.2f",(Float(metricVal.drivetime) ?? 0.00)),
+                  Text5: "Trip", Data5: String(format:"%0.1f°",(Float(metricVal.trip))),
+                  Text6: "12V", Data6: "\(metricVal.lowvoltage)V")
+        default:
+            SubView(Text1: "Motor", Data1: "", //"\(metricVal.temperature_motor)°",
+                    Text2: "Batt", Data2: "", //"\(metricVal.temperature_battery)°",
+                    Text3: "PEM", Data3: "", //"\(metricVal.temperature_pem)°",
+                    Text4: "Amb", Data4: "", //"\(metricVal.temperature_ambient)°",
+                    Text5: "Cabin", Data5: "", //"\(metricVal.temperature_cabin)°",
+                    Text6: "12V", Data6: "\(metricVal.lowvoltage)V")
         }
       }
     }

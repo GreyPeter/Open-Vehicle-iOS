@@ -225,7 +225,7 @@ extension WatchModel: WCSessionDelegate {
           self.metricVal.lowvoltage = String(reply["lowvoltage"] as! Int)
           self.metricVal.estimatedrange = String(reply["estrange"] as! Int)
           self.metricVal.doors1 = reply["doors1"] as! Int
-          let trip = reply["trip"] as! Double
+          self.metricVal.trip = reply["trip"] as! Double
           let doors = Doors(rawValue: self.metricVal.doors1)
           self.metricVal.on = doors.contains(.carOn)
           self.metricVal.cp_dooropen = doors.contains(.chargePort)
