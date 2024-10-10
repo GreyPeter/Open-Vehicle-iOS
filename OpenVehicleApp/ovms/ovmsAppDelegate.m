@@ -752,7 +752,7 @@
     case 'L': // LOCATION
       {
       NSArray *lparts = [cmd componentsSeparatedByString:@","];
-        //[self sendWatchMessage:@"L" message:lparts];
+        NSLog(@"Received L %@", lparts);
       if ([lparts count]>=2)
         {
         car_location.latitude = [[lparts objectAtIndex:0] doubleValue];
@@ -1684,10 +1684,11 @@ else
     NSString *received = [message objectForKey:@"msg"];
     if ([received  isEqualToString: @"charge"]) {
       NSDictionary *data = @{@"soc":[NSNumber numberWithInt:self.car_soc],
-                             @"charging":self.car_chargestate,
+                             @"chargingstate":self.car_chargestate,
                              @"durationfull":[NSNumber numberWithInt:self.car_minutestofull],
                              @"limitsoc":[NSNumber numberWithInt:self.car_soclimit],
                              @"limitrange":[NSNumber numberWithInt:self.car_rangelimit],
+                             @"car_parktime":[NSNumber numberWithInt:self.car_parktime],
                              @"durationsoc":[NSNumber numberWithInt:self.car_minutestosoclimit],
                              @"durationrange":[NSNumber numberWithInt:self.car_minutestorangelimit],
                              @"chargeduration":[NSNumber numberWithInt:self.car_chargeduration],
@@ -1697,11 +1698,16 @@ else
                              @"odometer":[NSNumber numberWithInt:self.car_odometer],
                              //@"power":[NSNumber numberWithInt:self.car_minutestofull],
                              @"current":[NSNumber numberWithInt:self.car_chargecurrent],
-                             @"voltage":[NSNumber numberWithInt:self.car_linevoltage],
+                             @"linevoltage":[NSNumber numberWithInt:self.car_linevoltage],
                              @"power":[NSNumber numberWithDouble:self.car_linevoltage * self.car_chargecurrent / 1000.0],
                              @"lowvoltage":[NSNumber numberWithInt:self.car_aux_battery_voltage],
                              @"estrange":[NSNumber numberWithInt:self.car_estimatedrange],
-                             @"doors1":[NSNumber numberWithInt:self.car_doors1]
+                             @"car_tpem":[NSNumber numberWithInt:self.car_tpem],
+                             @"car_tmotor":[NSNumber numberWithInt:self.car_tmotor],
+                             @"car_tbattery":[NSNumber numberWithInt:self.car_tbattery],
+                             @"car_trip":[NSNumber numberWithInt:self.car_trip],
+                             @"doors1":[NSNumber numberWithInt:self.car_doors1],
+                             @"units": self.car_units
       };
       replyHandler(@{@"reply":data});
 //    } else if ([received  isEqualToString: @"driving"]) {
@@ -1713,16 +1719,6 @@ else
     }
   });
 }
-
-//- (void)sendWatchMessage:(NSString*)topic message:(NSArray*)lparts {
-//  if (self.session.isReachable) {
-//    //[self.session sendMessage:@{@"topic":topic} replyHandler:nil errorHandler:nil];
-//    [self.session sendMessage:@{topic:lparts} replyHandler:nil errorHandler:nil];
-//    NSLog(@"WCSession message sent: %@", topic);
-//  } else {
-//    NSLog(@"WCSession not reachable");
-//  }
-//}
 
 - (void)sessionDidBecomeInactive:(WCSession *)session {
   NSLog(@"WCSession Became Inactive");

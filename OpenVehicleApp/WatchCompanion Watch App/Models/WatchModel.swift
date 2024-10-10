@@ -22,18 +22,52 @@ struct Doors: OptionSet {
   static let carOn = Doors(rawValue: 1 << 7)
 }
 
+struct WatchMetric {
+  var charging: Bool
+  var caron: Bool
+  var chargestate: String
+  var estimated_range: Double
+  var charge_etr_full: Double
+  var charge_etr_soc: Double
+  var charge_etr_range: Double
+  var charge_limit_soc: Double
+  var charge_limit_range: Double
+  var parktime: Double
+  var units: String
+  var chargeduration: Double
+  var chargekwh: Double
+  var chargecurrent: Double
+  var linevoltage: Double
+  var power: Double
+  var tripmeter: Double
+  var energyrecd: Double
+  var energyused: Double
+  var temperature_motor: Double
+  var temperature_battery: Double
+  var temperature_pem: Double
+  var temperature_ambient: Double
+  var voltage_cabin: Double
+  var vehicle12v: Double
+  var carsoc: Double
+  var doors: Doors
+  var odometer: Int
+  
+  static let initial = WatchMetric(charging: false, caron: false, chargestate: "", estimated_range: 0.0, charge_etr_full: 0.0, charge_etr_soc: 0.0, charge_etr_range: 0.0, charge_limit_soc: 0.0, charge_limit_range: 0.0, parktime: 0.0, units: "K", chargeduration: 0.0, chargekwh: 0.0, chargecurrent: 0.0, linevoltage: 0.0, power: 0.0, tripmeter: 0.0, energyrecd: 0.0, energyused: 0.0, temperature_motor: 0.0, temperature_battery: 0.0, temperature_pem: 0.0, temperature_ambient: 0.0, voltage_cabin: 0.0, vehicle12v: 0.0, carsoc: 0.0, doors: Doors(rawValue: 0), odometer: 0)
+    
+}
+
 class WatchModel: NSObject, ObservableObject {
   static let shared = WatchModel()
   @Published var metricVal = WatchMetric.initial
   var carMode: CarMode {
-      get {
-        if metricVal.charging {
-          return .charging
-        } else if metricVal.on  {
-          return .driving
-        }
-        return .idle
+    get {
+      if metricVal.charging {
+        return .charging
+      } else if metricVal.doors.contains(.carOn)  {
+        return .driving
       }
+      return .idle
+    }
   }
   
   var statusCharging = false
@@ -47,126 +81,6 @@ class WatchModel: NSObject, ObservableObject {
     super.init()
     self.session.delegate = self
     session.activate()
-  }
-  
-  func setMetric(message:String, payload:NSArray) {
-      //os_log(.debug, log: .watch, "Received message: \(message)")
-      switch message {
-      case "S":
-        if (payload.count>=8)
-        {
-          metricVal.soc = payload[0] as? String ?? "0"
-          //car_units = [lparts objectAtIndex:1];
-          metricVal.voltage = payload[2] as? String ?? "0"
-          //car_linevoltage = [[lparts objectAtIndex:2] intValue];
-          metricVal.chargecurrent = payload[3] as? String ?? "0"
-          //car_chargecurrent = [[lparts objectAtIndex:3] intValue];
-          metricVal.chargestate = payload[4] as? String ?? "0"
-          if (metricVal.chargestate == "charging") {
-            metricVal.charging = true
-          } else {
-            metricVal.charging = false
-          }
-          //car_chargestate = [lparts objectAtIndex:4];
-          metricVal.mode = payload[5] as? String ?? "0"
-          //car_chargemode = [lparts objectAtIndex:5];
-          metricVal.idealrange = payload[6] as? String ?? "0"
-          //car_idealrange = [[lparts objectAtIndex:6] intValue];
-          metricVal.estimatedrange = payload[7] as? String ?? "0"
-          //car_estimatedrange = [[lparts objectAtIndex:7] intValue];
-          //car_idealrange_s = [self convertDistanceUnits:car_idealrange];
-          //car_estimatedrange_s = [self convertDistanceUnits:car_estimatedrange];
-        }
-        if (payload.count>=15)
-        {
-          metricVal.climit = payload[8] as? String ?? "0"
-          //car_chargelimit = [[lparts objectAtIndex:8] intValue];
-          metricVal.chargeduration = payload[9] as? String ?? "0"
-          //car_chargeduration = [[lparts objectAtIndex:9] intValue];
-          //metricVal.soc = payload[10] as? String ?? "0"
-          //car_chargeb4 = [[lparts objectAtIndex:10] intValue];
-          metricVal.chargekwh = payload[11] as? String ?? "0"
-          //car_chargekwh = [[lparts objectAtIndex:11] intValue] / 10;
-          //metricVal.ch = payload[0] as? String ?? "0"
-          //car_chargesubstate = [[lparts objectAtIndex:12] intValue];
-          //metricVal.soc = payload[0] as? String ?? "0"
-          //car_chargestateN = [[lparts objectAtIndex:13] intValue];
-          //metricVal.soc = payload[0] as? String ?? "0"
-          //car_chargemodeN = [[lparts objectAtIndex:14] intValue];
-        }
-        if (payload.count>=19)
-        {
-          //metricVal.soc = payload[18] as? String ?? "0"
-          //car_cac = [lparts objectAtIndex:18];
-        }
-        if (payload.count>=23)
-        {
-          metricVal.durationfull = payload[19] as? String ?? "0"
-          //car_minutestofull = [[lparts objectAtIndex:19] intValue];
-          metricVal.limitrange = payload[21] as? String ?? "0"
-          //car_rangelimit = [[lparts objectAtIndex:21] intValue];
-          metricVal.limitsoc = payload[22] as? String ?? "0"
-          //car_soclimit = [[lparts objectAtIndex:22] intValue];
-        }
-        if(payload.count>=31)
-        {
-          //car_minutestorangelimit = [[lparts objectAtIndex:27] intValue];
-          metricVal.durationrange = payload[27] as? String ?? "0"
-          //car_minutestosoclimit = [[lparts objectAtIndex:28] intValue];
-          metricVal.durationsoc = payload[28] as? String ?? "0"
-          //car_chargetype = [[lparts objectAtIndex:30] intValue];
-          metricVal.type = payload[30] as? String ?? "0"
-        }
-        break
-      case "D":
-        //print(payload)
-        if (payload.count>=9)
-        {
-          let strVal = payload[0] as? String ?? "0"
-          metricVal.doors1 = Int(strVal) ?? 0
-          let doors = Doors(rawValue: metricVal.doors1)
-          metricVal.on = doors.contains(.carOn)
-          metricVal.cp_dooropen = doors.contains(.chargePort)
-          //print("Doors1 = 0x\(String(metricVal.doors1, radix: 2, uppercase: true))")
-          let strVal1 = payload[1] as? String ?? "0"
-          metricVal.doors2 = Int(strVal1) ?? 0
-          //print("Doors2 = 0x\(String(metricVal.doors2, radix: 2, uppercase: true))")
-          metricVal.locked = payload[2] as? String ?? "0"
-          //metricVal.soc = payload[3] as? String ?? "0"
-          //metricVal.soc = payload[4] as? String ?? "0"
-          //metricVal.soc = payload[5] as? String ?? "0"
-          //metricVal.soc = payload[6] as? String ?? "0"
-          metricVal.odometer = payload[7] as? String ?? "0"
-          metricVal.gpsspeed = payload[8] as? String ?? "0"
-        }
-        if (payload.count>=10)
-        {
-          metricVal.parktime = payload[9] as? String ?? "0"
-        } else {
-          metricVal.parktime = "0"
-        }
-        if (payload.count>=15)
-        {
-          metricVal.lowvoltage = payload[14] as? String ?? "0"
-        }
-        break
-      case "L":
-        //print(payload)
-        if (payload.count>=3)
-        {
-          metricVal.latitude = payload[0] as? String ?? "0"
-          metricVal.longitude = payload[1] as? String ?? "0"
-        }
-        if (payload.count>=6)
-        {
-          metricVal.direction = payload[2] as? String ?? "0"
-          metricVal.altitude = payload[3] as? String ?? "0"
-          metricVal.gpslock = payload[4] as? String ?? "0"
-          //metricVal.stale_gps = payload[5] as? String ?? "0"
-        }
-      default:
-        break
-      }
   }
 }
 
@@ -182,25 +96,6 @@ extension WatchModel: WCSessionDelegate {
       os_log(.debug, log: .watch, "Finished activating session %lu (error: %s)", activationState == .activated, error?.localizedDescription ?? "")
   }
   
-//  func updateData(withCompletionHander completionHandler: @escaping (Error?) -> Void) {
-//    
-//  }
-  
-  func session(_ session: WCSession, didReceiveMessage message: [String: Any]) {
-    DispatchQueue.main.async {
-      os_log(.error, log: .watch, "Received message")
-//      if let payload = message["S"] as? NSArray {
-//        self.setMetric(message: "S", payload: payload)
-//      } else if let payload = message["D"] as? NSArray {
-//        self.setMetric(message: "D", payload: payload)
-//      } else if let payload = message["L"] as? NSArray {
-//        self.setMetric(message: "L", payload: payload)
-//      } else {
-//        os_log(.error, log: .watch, "Received message not decoded")
-//      }
-    }
-  }
-  
   func getChargeData() {
     if session.isReachable {
       sessionAvailable = true
@@ -208,27 +103,34 @@ extension WatchModel: WCSessionDelegate {
       session.sendMessage(message, replyHandler: { (payload) in
         let reply = payload["reply"] as! Dictionary<String, Any>
         DispatchQueue.main.async{
-          self.metricVal.soc = String(reply["soc"] as! Int)
-          self.metricVal.chargestate = reply["charging"] as! String
-          self.metricVal.durationfull = String(reply["durationfull"] as! Int)
-          self.metricVal.limitsoc = String(reply["limitsoc"] as! Int)
-          self.metricVal.limitrange = String(reply["limitrange"] as! Int)
-          self.metricVal.durationsoc = String(reply["durationsoc"] as! Int)
-          self.metricVal.durationrange = String(reply["durationrange"] as! Int)
-          self.metricVal.chargeduration = String(reply["chargeduration"] as! Int)
-          self.metricVal.chargekwh = String(reply["chargekwh"] as! Int)
-          self.metricVal.gpsspeed = String(reply["gpsspeed"] as! Int)
-          self.metricVal.odometer = String(reply["odometer"] as! Int)
-          self.metricVal.current = String(reply["current"] as! Int)
-          self.metricVal.voltage = String(reply["voltage"] as! Int)
-          self.metricVal.power = String(reply["power"] as! Double)
-          self.metricVal.lowvoltage = String(reply["lowvoltage"] as! Int)
-          self.metricVal.estimatedrange = String(reply["estrange"] as! Int)
-          self.metricVal.doors1 = reply["doors1"] as! Int
-          self.metricVal.trip = reply["trip"] as! Double
-          let doors = Doors(rawValue: self.metricVal.doors1)
-          self.metricVal.on = doors.contains(.carOn)
-          self.metricVal.cp_dooropen = doors.contains(.chargePort)
+          self.metricVal.carsoc = reply["soc"] as! Double
+          self.metricVal.chargestate = reply["chargingstate"] as! String
+          self.metricVal.estimated_range = reply["estrange"] as! Double
+          self.metricVal.charge_etr_full = reply["durationfull"] as! Double
+          self.metricVal.charge_etr_soc = reply["durationsoc"] as! Double
+          self.metricVal.charge_etr_range = reply["durationrange"] as! Double
+          self.metricVal.charge_limit_soc = reply["limitsoc"] as! Double
+          self.metricVal.charge_limit_range = reply["limitrange"] as! Double
+          self.metricVal.parktime = reply["car_parktime"] as! Double
+          self.metricVal.units = reply["units"] as! String
+          self.metricVal.chargeduration = reply["chargeduration"] as! Double
+          self.metricVal.chargekwh = reply["chargekwh"] as! Double
+          self.metricVal.chargecurrent = reply["current"] as! Double
+          self.metricVal.linevoltage = reply["linevoltage"] as! Double
+          self.metricVal.power = reply["power"] as! Double
+          self.metricVal.tripmeter = reply["car_trip"] as! Double
+          //self.metricVal.energyrecd = reply["soc"] as! Double
+          //self.metricVal.energyused = reply["soc"] as! Double
+          self.metricVal.temperature_motor = reply["car_tmotor"] as! Double
+          self.metricVal.temperature_battery = reply["car_tbattery"] as! Double
+          self.metricVal.temperature_pem = reply["car_tpem"] as! Double
+          self.metricVal.temperature_ambient = reply["soc"] as! Double
+          self.metricVal.voltage_cabin = reply["soc"] as! Double
+          self.metricVal.vehicle12v = reply["lowvoltage"] as! Double
+          let doors1 = reply["doors1"] as! Int
+          self.metricVal.doors = Doors(rawValue: doors1)
+          self.metricVal.odometer = reply["odometer"] as! Int
+          
           if (self.metricVal.chargestate == "charging") {
             self.metricVal.charging = true
           } else {

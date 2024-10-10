@@ -41,7 +41,7 @@ struct WatchView: View {
 
   var body: some View {
     let metricVal = metrics.metricVal
-    let socDouble = Double(metricVal.soc) ?? 0.0
+    let socDouble = 50.0 //Double(metric.linevoltage) ?? 0.0
     let carMode = metrics.carMode
     let phoneImage = metrics.sessionAvailable ? "iphone.gen3.circle" : "iphone.gen3.slash.circle"
     GeometryReader { watchGeo in
@@ -77,10 +77,10 @@ struct WatchView: View {
           )
           .overlay(
             VStack {
-              Text("\(metricVal.soc)%")//"\(String(format:"%0.1f",(Float(metricVal.soc) ?? 0.00)))%")
+              Text("\(String(format:"%0.1f",(Float(metricVal.carsoc))))%")
                 .fontWeight(.bold)
                 .foregroundColor(Color.white)
-              Text("\(metricVal.estimatedrange)Km")//"\(String(format:"%0.1fKm",(Float(metricVal.estimatedrange) ?? 0.00)))")
+              Text("\(String(format:"%0.1fKm",(Float(metricVal.estimated_range))))")
                 .fontWeight(.bold)
                 .foregroundColor(Color.white)
             }
@@ -88,26 +88,26 @@ struct WatchView: View {
               .opacity(0.9))
         switch carMode {
         case .charging:
-          SubView(Text1: "Full", Data1: timeConvert(time: metricVal.durationfull),
-                  Text2: "\(metricVal.limitsoc)%", Data2: timeConvert(time: metricVal.durationsoc),
-                  Text3: "\(metricVal.limitrange)K", Data3: timeConvert(time: metricVal.durationrange),
-                  Text4: "Dur", Data4: timeConvert(time: "\((Int(metricVal.chargeduration) ?? 0)/60)"),
-                  Text5: "kWh", Data5: String(format:"%0.1f",(Float(metricVal.chargekwh) ?? 0.00)),
-                  Text6: "@ kW", Data6: String(format:"%0.1f",(Float(metricVal.power) ?? 0.00)))
+          SubView(Text1: "Full", Data1: timeConvert(time: String(metricVal.charge_etr_full)),
+                  Text2: "\(metricVal.charge_limit_soc)%", Data2: timeConvert(time: String(metricVal.charge_etr_soc)),
+                  Text3: "\(metricVal.charge_limit_range)K", Data3: timeConvert(time: String(metricVal.charge_etr_range)),
+                  Text4: "Dur", Data4: timeConvert(time: "\((Int(metricVal.chargeduration))/60)"),
+                  Text5: "kWh", Data5: String(format:"%0.1f",(Float(metricVal.chargekwh))),
+                  Text6: "@ kW", Data6: String(format:"%0.1f",(Float(metricVal.power))))
         case .driving:
-          SubView(Text1: "PWR", Data1: String(format:"%0.1f",(Float(metricVal.power) ?? 0.00)),
-                  Text2: "ODO", Data2: metricVal.odometer,
-                  Text3: "Cons", Data3: String(format:"%0.2f",(Float(metricVal.consumption) ?? 0.00)),
-                  Text4: "Time", Data4: String(format:"%0.2f",(Float(metricVal.drivetime) ?? 0.00)),
-                  Text5: "Trip", Data5: String(format:"%0.1f°",(Float(metricVal.trip))),
-                  Text6: "12V", Data6: "\(metricVal.lowvoltage)V")
+          SubView(Text1: "PWR", Data1: String(format:"%0.1f",(Float(metricVal.power))),
+                  Text2: "ODO", Data2: String(metricVal.odometer),
+                  Text3: "Cons", Data3: "0.00", //String(format:"%0.2f",(Float(metricVal.consumption) ?? 0.00)),
+                  Text4: "Time", Data4: "0.00", //String(format:"%0.2f",(Float(metricVal.drivetime) ?? 0.00)),
+                  Text5: "Trip", Data5: "0.00", //String(format:"%0.1f°",(Float(metricVal.tripmeter))),
+                  Text6: "12V", Data6: "\(metricVal.vehicle12v)V")
         default:
-            SubView(Text1: "Motor", Data1: "", //"\(metricVal.temperature_motor)°",
-                    Text2: "Batt", Data2: "", //"\(metricVal.temperature_battery)°",
-                    Text3: "PEM", Data3: "", //"\(metricVal.temperature_pem)°",
-                    Text4: "Amb", Data4: "", //"\(metricVal.temperature_ambient)°",
-                    Text5: "Cabin", Data5: "", //"\(metricVal.temperature_cabin)°",
-                    Text6: "12V", Data6: "\(metricVal.lowvoltage)V")
+          SubView(Text1: "Motor", Data1: "\(metricVal.temperature_motor)", //"\(metricValVal.temperature_motor)°",
+                  Text2: "Batt", Data2: "\(metricVal.temperature_battery)", //"\(metricValVal.temperature_battery)°",
+                  Text3: "PEM", Data3: "\(metricVal.temperature_pem)", //"\(metricValVal.temperature_pem)°",
+                    Text4: "Amb", Data4: "\(0)", //"\(metricValVal.temperature_ambient)°",
+                    Text5: "Cabin", Data5: "\(0)", //"\(metricValVal.temperature_cabin)°",
+                    Text6: "12V", Data6: "\(metricVal.vehicle12v)V")
         }
       }
     }

@@ -1257,18 +1257,8 @@
 		D095640D2CA2B64E00AA3A33 /* WatchConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WatchConnectivity.framework; path = System/Library/Frameworks/WatchConnectivity.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		D095644D2CA3D1F100AA3A33 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"WatchCompanion-Watch-App-Info.plist",
-			);
-			target = D09563EB2CA2A76600AA3A33 /* WatchCompanion Watch App */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		D09563ED2CA2A76600AA3A33 /* WatchCompanion Watch App */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (D095644D2CA3D1F100AA3A33 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = "WatchCompanion Watch App"; sourceTree = "<group>"; };
+		D09563ED2CA2A76600AA3A33 /* WatchCompanion Watch App */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = "WatchCompanion Watch App"; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
